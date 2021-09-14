@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Login</title>
+        
+        <link href="loginstyle.css" rel="stylesheet" type="text/css" />
+
+        <script type="text/javascript">
+                                              
+        function login () {
+            var user = document.getElementById("txtUsername").value;
+            var pass=document.getElementById("txtPassword").value;
+            if(user==''  || pass=='' ){
+
+                var xx = document.getElementById("showmsg");
+                xx.classList.remove("hideBox");
+                xx.classList.add("showBox");
+
+            }
+            else{
+                localStorage.setItem('username',user);
+                window.location.href="home.html";
+            }
+        }
+
+            function hide() {
+                debugger;
+                
+                var xx = document.getElementById("showmsg");
+                xx.classList.remove("showBox");
+                xx.classList.add("hideBox");
+                
+            }
+        
+        </script>
+
+    </head>
+    <body>
+
+        <div class="box">
+            <h2>Login</h2>
+            <form>
+                <div class="inputBox">
+                    <label>Username</label>
+    
+                    <input type="text" id="txtUsername" />
+                </div>
+                <div class="inputBox">
+                    <label>Password</label>
+    
+                    <input type="password" id="txtPassword" />
+                </div>
+                <input type="button" value="Sign In" onclick="login ()" />
+            </form>
+            <div class="hideBox" id="showmsg">
+                <label>Please Enter Username & Password</label>
+                <img src="Images/Icons/Close (2).png" width="20" onclick="  hide()" />
+            </div>
+        </div>
+
+    </body>
+</html>
